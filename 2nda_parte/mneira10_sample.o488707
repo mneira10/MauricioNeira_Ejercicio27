@@ -1,0 +1,45 @@
+mpic++ sample.c -o sample.x -std=c++11
+In file included from /opt/openmpi/include/mpi.h:253:0,
+                 from sample.c:7:
+/opt/openmpi/include/mpi_portable_platform.h:374:34: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+              _STRINGIFY(__GNUC__)"."_STRINGIFY(__GNUC_MINOR__)"."_STRINGIFY(__GNUC_PATCHLEVEL__)
+                                  ^
+/opt/openmpi/include/mpi_portable_platform.h:374:63: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+              _STRINGIFY(__GNUC__)"."_STRINGIFY(__GNUC_MINOR__)"."_STRINGIFY(__GNUC_PATCHLEVEL__)
+                                                               ^
+mpiexec -np 4 ./sample.x 2000 0 1
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            node-21.local
+  Device name:           mlx4_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4103
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+Process 0 of 4 started.
+0 1
+Process 1 of 4 started.
+1 2
+Process 2 of 4 started.
+2 3
+Process 3 of 4 started.
+3 4
+Process 0 of 4 finished.
+Process 3 of 4 finished.
+Process 2 of 4 finished.
+Process 1 of 4 finished.
+[node-21.local:43896] 3 more processes have sent help message help-mpi-btl-openib.txt / no device params found
+[node-21.local:43896] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+python3 graph.py
+
+
+(hpcstats) Getting modules

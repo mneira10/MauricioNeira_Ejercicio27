@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use("Agg")
 import numpy as np 
 import matplotlib.pyplot as plt 
 from os import listdir
@@ -15,7 +17,7 @@ for f in onlyfiles:
 
 
 
-plt.hist(data,density = True)
+plt.hist(data,normed = True)
 
 mu, std = norm.fit(data)
 xmin, xmax = plt.xlim()
